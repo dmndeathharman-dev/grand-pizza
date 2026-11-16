@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Grand Pizza menu and restaurant details in Dera Bassi, Zirakpur.">
+  <title>Grand Pizza Menu | Dera Bassi</title>
+  <style>
+    :root {
+      --red: #e23744;
+      --text: #1c1c1c;
+      --muted: #777;
+      --border: #eee;
+      --background: #f8f8f8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--background);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .topbar {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topbar-inner,
+    main,
+    footer {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    .topbar-inner {
+      min-height: 66px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      color: var(--red);
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .breadcrumbs {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .breadcrumbs span { margin: 0 6px; color: #bbb; }
+
+    main { padding: 26px 0 44px; }
+
+    .restaurant-card,
+    .menu-card,
+    .related-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 18px;
+    }
+
+    .restaurant-card { padding: 24px; }
+
+    .restaurant-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    h1 { font-size: 30px; margin: 0 0 10px; }
+
+    .cuisines, .address, .hours {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .status { color: #168a50; font-weight: 700; }
+
+    .ratings {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .rating {
+      min-width: 125px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 12px 14px;
+    }
+
+    .rating strong { display: block; font-size: 18px; margin-bottom: 4px; }
+    .rating small { color: var(--muted); }
+
+    .phone {
+      display: inline-block;
+      margin-top: 16px;
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 28px;
+      overflow-x: auto;
+      padding: 16px 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tabs a {
+      white-space: nowrap;
+      padding: 0 0 14px;
+      color: var(--muted);
+    }
+
+    .tabs .active {
+      color: var(--red);
+      font-weight: 700;
+      border-bottom: 2px solid var(--red);
+    }
+
+    .menu-content { padding: 22px 24px 26px; }
+
+    .menu-content h2 { margin: 0 0 6px; font-size: 22px; }
+    .menu-content p { color: var(--muted); margin: 0; }
+
+    .menu-placeholder {
+      margin-top: 20px;
+      min-height: 155px;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      text-align: center;
+      color: var(--muted);
+      background: #fafafa;
+      border: 1px dashed #ddd;
+      border-radius: 10px;
+    }
+
+    .menu-placeholder strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .related-card { padding: 22px 24px; }
+    .related-card h2 { font-size: 17px; margin: 0 0 12px; }
+    .tag-list { color: var(--muted); font-size: 14px; line-height: 2; }
+    .tag-list a:hover { color: var(--red); }
+
+    footer {
+      color: var(--muted);
+      font-size: 13px;
+      padding: 22px 0 30px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 22px;
+      margin: 14px 0;
+    }
+
+    @media (max-width: 600px) {
+      .topbar-inner { align-items: flex-start; flex-direction: column; gap: 8px; padding: 12px 0; }
+      h1 { font-size: 25px; }
+      .restaurant-card { padding: 19px; }
+      .restaurant-head { flex-direction: column; }
+      .tabs { gap: 22px; padding-left: 19px; }
+      .menu-content, .related-card { padding-left: 19px; padding-right: 19px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#" aria-label="Home">zomato</a>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        Home <span>/</span> India <span>/</span> Chandigarh <span>/</span>
+        Zirakpur <span>/</span> Dera Bassi <span>/</span> Grand Pizza
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="restaurant-card" aria-labelledby="restaurant-name">
+      <div class="restaurant-head">
+        <div>
+          <h1 id="restaurant-name">Grand Pizza</h1>
+          <div class="cuisines">Pizza, Fast Food, Chinese, Momos, Beverages</div>
+          <p class="address">Near Police Station, Ambala Road, Dera Bassi, Zirakpur</p>
+          <div class="hours"><span class="status">Open now</span> · 10am – 10pm (Today)</div>
+          <a class="phone" href="tel:+917071100222">☎ +91 70711 00222</a>
+        </div>
+        <div class="ratings" aria-label="Restaurant ratings">
+          <div class="rating"><strong>3.2 ★</strong><small>31 Dining Ratings</small></div>
+          <div class="rating"><strong>—</strong><small>0 Delivery Ratings</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu-card" aria-label="Restaurant sections">
+      <nav class="tabs">
+        <a href="#overview">Overview</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#photos">Photos</a>
+        <a class="active" href="#menu">Menu</a>
+      </nav>
+      <div class="menu-content" id="menu">
+        <h2>Grand Pizza Menu</h2>
+        <p>Food menu · 3 pages</p>
+        <div class="menu-placeholder">
+          <div>
+            <strong>Food menu</strong>
+            Menu pages can be added here. Replace this area with menu images or a list of dishes and prices.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="related-card">
+      <h2>Related to Grand Pizza, Dera Bassi</h2>
+      <div class="tag-list">
+        <a href="#">Restaurants in Zirakpur</a> ·
+        <a href="#">Dera Bassi restaurants</a> ·
+        <a href="#">Quick Bites in Chandigarh</a> ·
+        <a href="#">Quick Bites near me</a> ·
+        <a href="#">Quick Bites in Zirakpur</a> ·
+        <a href="#">Quick Bites in Dera Bassi</a>
+      </div>
+    </section>
+
+    <section class="related-card">
+      <h2>Restaurants around Dera Bassi</h2>
+      <div class="tag-list">
+        <a href="#">VIP Road</a> ·
+        <a href="#">Lohgarh</a> ·
+        <a href="#">Ambala Road</a> ·
+        <a href="#">Dhakoli</a>
+      </div>
+    </section>
+
+    <section class="related-card">
+      <h2>Frequent searches leading to this page</h2>
+      <div class="tag-list">zomato · grand pizza menu · grand pizza dera bassi menu · grand pizza zirakpur menu</div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>About Zomato</strong>
+    <div class="footer-links">
+      <a href="#">Who We Are</a><a href="#">Work With Us</a>
+      <a href="#">Investor Relations</a><a href="#">Report Fraud</a>
+      <a href="#">Contact Us</a><a href="#">Privacy</a>
+      <a href="#">Security</a><a href="#">Terms</a>
+    </div>
+    <p>By continuing past this page, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies.</p>
+    <p>© 2008–2026 Zomato Ltd. All rights reserved.</p>
+  </footer>
+</body>
+</html>
